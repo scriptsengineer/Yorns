@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nifty-styles xmlns="http://nifty-gui.lessvoid.com/nifty-gui">
+  <useStyles filename="Interface/Style/Button/yorns-button.xml"/>
+   <useStyles filename="Interface/Style/Panel/yorns-panel.xml"/>
+   <useStyles filename="Interface/Style/Textfield/yorns-textfield.xml"/>
+   <useStyles filename="Interface/Style/Label/yorns-label.xml"/>
+   <useStyles filename="Interface/Style/Checkbox/yorns-checkbox.xml"/>
+   <useStyles filename="Interface/Style/yorns-bubble.xml"/>
+   <useStyles filename="Interface/Style/yorns-hint.xml"/>
+</nifty-styles>

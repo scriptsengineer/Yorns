@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<nifty xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://nifty-gui.lessvoid.com/nifty-gui" xsi:schemaLocation="https://raw.githubusercontent.com/void256/nifty-gui/1.4/nifty-core/src/main/resources/nifty.xsd https://raw.githubusercontent.com/void256/nifty-gui/1.4/nifty-core/src/main/resources/nifty.xsd">
+  <useControls filename="nifty-default-controls.xml"/>
+  <useStyles filename="nifty-default-styles.xml"/>
+  <useStyles filename="Interface/Style/yorns-style.xml"/>
+  <screen id="GScreenLogin" controller="br.com.expressobits.games.yorns.menu.LoginScreenAppState">
+    <layer style="yorns-layer" id="GLayer0" childLayout="center">
+      <panel id="GPanel0" height="50.0%" style="yorns-panel" width="60%" childLayout="vertical" y="245" x="348">
+        <panel id="GPanel1" height="20.0%" style="yorns-paneloff" width="100.0%" childLayout="center" y="13" x="13">
+          <control style="yorns-label-title" name="label" textMinHeight="12px" id="GLabel0" text="Login in GameJolt" height="80%" width="100.0%" y="80%" />
+        </panel>
+        <panel id="GPanel2" height="80.0%" style="yorns-paneloff" width="100.0%" childLayout="vertical" y="-1px" x="-1px">
+          <panel id="GPanel4" height="25.0%" style="yorns-paneloff" width="100.0%" childLayout="center">
+            <panel id="GPanel3" height="80.0%" style="yorns-paneloff" width="100.0%" childLayout="horizontal" y="5" x="2">
+              <control style="yorns-label-text" name="label" id="GLabel1" text="Nick name" height="100.0%" width="30%"/>
+              <control style="yorns-textfield" name="textfield" id="GTextfieldNick" valign="center"/>
+            </panel>
+          </panel>
+          <panel id="GPanel5" height="25.0%" style="yorns-paneloff" width="100.0%" childLayout="center">
+            <panel id="GPanel6" height="80.0%" style="yorns-paneloff" width="100.0%" childLayout="horizontal" y="29" x="48">
+              <control style="yorns-label-text" name="label" id="GLabel2" text="Token" height="100.0%" width="30.0%" childLayout="" valign="center"/>
+              <control style="yorns-textfield" name="textfield" id="GTextfieldPassword" valign="center"/>
+            </panel>
+          </panel>
+          <panel id="GPanel7" height="25.0%" style="yorns-paneloff" width="100.0%" childLayout="horizontal">
+            <panel id="GPanel9" height="100.0%" style="yorns-paneloff"  width="50%" childLayout="center" y="29" x="108">
+              <control style="yorns-button" name="button" id="GButton1" label="Login" childLayout="center" valign="center">
+                <interact onClick="login()"/>
+              </control>
+            </panel>
+            <panel id="GPanel10" height="100.0%" style="yorns-paneloff"  width="50%" childLayout="center">
+              <control style="yorns-button" name="button" id="GButton2"label="Cancel" childLayout="center" valign="center">
+                <interact onClick="cancel()"/>
+              </control>
+            </panel>
+          </panel>
+          <panel id="GPanel8" height="25.0%" style="yorns-paneloff" width="100.0%" childLayout="horizontal">
+            <control style="yorns-label-text" name="label" id="GLabel3" text="(?)Use the token generate of GameJolt" height="100.0%" width="100.0%"/>
+          </panel>
+        </panel>
+      </panel>
+      
+    </layer>
+  </screen>
+  <popup id="popupExit" style="yorns-popup">
+    <panel style="yorns-panel-popup" childLayout="vertical">
+      <control style="yorns-label-text" name="label" id="GLabelSucess" text="LABEL RESULT" height="50.0%" width="100%"/>
+      <panel style="yorns-paneloff" childLayout="horizontal" height="50%" wisth="100%">
+        <panel width="10.0%" style="yorns-paneloff" height="100.0%"/>
+        <control style="yorns-button" width="35%" name="button" id="GButton0" visibleToMouse="true"
+                             align="center" label="Return" childLayout="center">
+            <interact onClick="cancel()"/>
+          </control>
+          <panel width="10.0%" style="yorns-paneloff" height="100.0%"/>
+          <control width="35.0%" style="yorns-button" padding="10px" name="button" id="GButton4" 
+                   align="center" label="Try Again" childLayout="center">
+            <interact onClick="close()"/>
+          </control>
+          <panel width="10.0%" style="yorns-paneloff" height="100.0%"/>
+      </panel>
+      
+    </panel>
+  </popup>
+</nifty>

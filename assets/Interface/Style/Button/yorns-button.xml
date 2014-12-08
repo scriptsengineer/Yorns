@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nifty-styles xmlns="http://nifty-gui.lessvoid.com/nifty-gui">
+    
+    <style id="yorns-button">
+      <effect>
+        <onHover name="colorPulsate" startColor="#ff0f" endColor="#00ff" period="250"/>
+        <onHover name="playSound" sound="effectSound"/>
+      </effect>
+      
+    </style>
+    
+    <!-- +++++++++++++++++++++++++++++++++++++ -->
+    <!-- style for the button background panel -->
+    <!-- +++++++++++++++++++++++++++++++++++++ -->
+    <style id="yorns-button#panel">
+        <attributes backgroundImage="Interface/Style/Button/button.png" imageMode="sprite-resize:32,32,0,8,15,8,8,8,15,8,15,8,15,8,8"
+                    paddingLeft="7px" paddingRight="7px" width="200px" height="25px" childLayout="center"
+                    visibleToMouse="true"/>
+        <effect>
+            
+            <onFocus name="imageOverlay" filename="Interface/Style/Button/button.png"
+                     imageMode="sprite-resize:32,32,1,8,15,8,8,8,15,8,15,8,15,8,8" post="true"/>
+            <onClick name="imageOverlay" filename="Interface/Style/Button/button.png"
+                     imageMode="sprite-resize:32,32,2,8,15,8,8,8,15,8,15,8,15,8,8" post="true"/>
+            <onClick name="playSound" sound="buttonSound"/>
+            <onEnabled name="renderQuad" startColor="#2228" endColor="#2220" post="true" length="150"/>
+            <onDisabled name="renderQuad" startColor="#2220" endColor="#2228" post="true" length="150"/>
+        </effect>
+    </style>
+
+    <!-- +++++++++++++++++++++++++++++++++++++ -->
+    <!-- style for the button text -->
+    <!-- +++++++++++++++++++++++++++++++++++++ -->
+    <style id="yorns-button#text">
+        <attributes font="Interface/Fonts/PocketCalculator.fnt" align="center" valign="center" textHAlign="center" textVAlign="center" visibleToMouse="false"/>
+        <effect>
+            <onEnabled name="textColorAnimated" startColor="#8886" endColor="#eeef" post="false" length="150"/>
+            <onDisabled name="textColorAnimated" startColor="#eeef" endColor="#8886" post="false" length="150"/>
+        </effect>
+    </style>
+</nifty-styles>

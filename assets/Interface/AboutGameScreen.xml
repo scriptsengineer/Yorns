@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<nifty xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://nifty-gui.lessvoid.com/nifty-gui" xsi:schemaLocation="https://raw.githubusercontent.com/void256/nifty-gui/1.4/nifty-core/src/main/resources/nifty.xsd https://raw.githubusercontent.com/void256/nifty-gui/1.4/nifty-core/src/main/resources/nifty.xsd">
+    <useControls filename="nifty-default-controls.xml"/>
+    <useStyles filename="nifty-default-styles.xml"/>
+    <useStyles filename="Interface/Style/yorns-style.xml"/>
+  <screen id="GScreenAboutGame" controller="br.com.expressobits.games.yorns.menu.AboutGameScreenAppState">
+        <layer style="yorns-layer" id="GLayer0" childLayout="center">
+            <panel id="GPanel0" height="50.0%" style="yorns-panel" width="50%" childLayout="vertical">
+                <panel id="GPanel1" height="20.0%" style="yorns-paneloff"  width="100.0%" childLayout="center">
+                    <control style="yorns-label-title" name="label" id="GLabel0" text="About Game"/>
+                </panel>
+                <panel id="GPanel2" height="60.0%" style="yorns-paneloff" width="100.0%" childLayout="overlay">
+                    <control style="yorns-label-text" name="label" id="GLabel2" text="Create of RafaelC&#xA;http://gamejolt.com/profile/rafaelc/405097/&#xA;&#xA;Design of Gabriel-Correa&#xA;http://gamejolt.com/profile/gabriel-correa/326034/&#xA;&#xA;Audio of FoxSynergy &#xA;opengameart.org/users/foxsynergy" childLayout="overlay"/>
+                </panel>
+                <panel id="GPanel3" height="20.0%" style="yorns-paneloff" width="100.0%" childLayout="center">
+                    <control style="yorns-button" name="button" id="GButton0" label="Return">
+                    <interact onClick="cancel()"/>
+                </control>
+                </panel>
+            </panel>
+        </layer>
+    </screen>
+</nifty>

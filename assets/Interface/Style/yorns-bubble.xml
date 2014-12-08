@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nifty-styles xmlns="http://nifty-gui.lessvoid.com/nifty-gui">
+  <style id="yorns-bubble">
+    <attributes padding="5px" backgroundImage="Interface/Style/Panel/yorns-panel.png"
+                imageMode="resize:9,2,9,9,9,2,9,2,9,2,9,9"/>
+    <effect>
+      <onHide  name="move" timeType="exp" factor="16" direction="top" mode="out"
+                       lenght="25" inherit="true"/>
+      <onShow  name="move" timeType="exp" factor="16" direction="top" mode="in"
+                       lenght="25" inherit="true"/>
+    </effect>
+  </style>
+</nifty-styles>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nifty-styles xmlns="http://nifty-gui.lessvoid.com/nifty-gui">
+  <style id="yorns-paneloff">
+    <attributes backgroundColor="#0000"/>
+  </style>
+  <style id="yorns-panel">
+    <attributes padding="5px" backgroundImage="Interface/Style/Panel/yorns-panel.png"
+                imageMode="resize:9,2,9,9,9,2,9,2,9,2,9,9"/>
+    
+  </style>
+  
+  <style id="yorns-panelbright">
+    <attributes padding="5px" backgroundImage="Interface/Style/Panel/yorns-panel-bright.png"
+                imageMode="resize:9,2,9,9,9,2,9,2,9,2,9,9"/>
+    
+  </style>
+  <style id="yorns-layer">
+    <attributes backgroundImage="Interface/Style/background.png"/>
+  </style>
+  <style id="yorns-game-layer">
+    <attributes backgroundImage="Interface/Style/background.png"/>
+  </style>
+  <style id="yorns-panel-popup">
+    
+    <attributes width="60%" height="25%" padding="5px" backgroundImage="Interface/Style/Panel/yorns-panel.png"
+                imageMode="resize:9,2,9,9,9,2,9,2,9,2,9,9"/>
+    <effect>
+      <onStartScreen name="playSound" sound="alertSound"/>
+    </effect>
+  </style>
+  <style id="yorns-popup">
+    <attributes backgroundColor="#f002" childLayout="center"/>
+  </style>
+</nifty-styles>

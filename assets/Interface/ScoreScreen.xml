@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<nifty xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://nifty-gui.lessvoid.com/nifty-gui" xsi:schemaLocation="https://raw.githubusercontent.com/void256/nifty-gui/1.4/nifty-core/src/main/resources/nifty.xsd https://raw.githubusercontent.com/void256/nifty-gui/1.4/nifty-core/src/main/resources/nifty.xsd">
+  <useControls filename="nifty-default-controls.xml"/>
+  <screen id="GScreenScore" controller="br.com.expressobits.games.yorns.menu.ScoreScreenAppState">
+    <layer style="yorns-layer" childLayout="center">
+      <panel style="yorns-panel" height="80.0%" width="50%" childLayout="vertical">
+        <panel style="yorns-paneloff" id="GPanelScores" height="80.0%" width="100.0%" childLayout="vertical">
+          <panel style="yorns-paneloff"  height="20.0%" width="100.0%" childLayout="horizontal">
+            <panel style="yorns-paneloff" height="100.0%" width="20.0%" childLayout="center">
+              <control style="yorns-label-title"  width="75%" height="100%" name="label" text="1"/>
+            </panel>
+            <panel style="yorns-paneloff" height="100.0%" width="30.0%" childLayout="center">
+              <image id="Image1" width="60px" height="60px" align="center"/>
+            </panel>
+            <panel style="yorns-paneloff" height="100.0%" width="50.0%" childLayout="center">
+              <control style="yorns-label-text"  width="75%" height="100%" name="label" id="GLabel1" text="Login in GameJolt"/>
+            </panel>
+          </panel>
+          
+          <panel style="yorns-paneloff" height="20.0%" width="100.0%" childLayout="horizontal">
+            <panel style="yorns-paneloff" height="100.0%" width="20.0%" childLayout="center">
+              <control style="yorns-label-title"  width="75%" height="100%" name="label" text="2"/>
+            </panel>
+            <panel style="yorns-paneloff" height="100.0%" width="30.0%" childLayout="center">
+              <image id="Image2" width="60px" height="60px" align="center"/>
+            </panel>
+            <panel style="yorns-paneloff"height="100.0%" width="50.0%" childLayout="center">
+              <control style="yorns-label-text" name="label" id="GLabel2" text="Login in GameJolt"/>
+            </panel>
+          </panel>
+          
+          <panel style="yorns-paneloff"height="20.0%" width="100.0%" childLayout="horizontal">
+            <panel style="yorns-paneloff" height="100.0%" width="20.0%" childLayout="center">
+              <control style="yorns-label-title"  width="75%" height="100%" name="label" text="3"/>
+            </panel>
+            <panel style="yorns-paneloff"height="100.0%" width="30.0%" childLayout="center">
+              <image id="Image3" width="60px" height="60px" align="center"/>
+            </panel>
+            <panel style="yorns-paneloff" height="100.0%" width="50.0%" childLayout="center">
+              <control style="yorns-label-text" name="label" id="GLabel3" text="Login in GameJolt"/>
+            </panel>
+          </panel>
+          
+          
+          <panel style="yorns-paneloff" id="panel4" height="20.0%" width="100.0%" childLayout="horizontal">
+            <panel style="yorns-paneloff" height="100.0%" width="20.0%" childLayout="center">
+              <control style="yorns-label-title"  width="75%" height="100%" name="label" text="4"/>
+            </panel>
+            <panel style="yorns-paneloff" height="100.0%" width="30.0%" childLayout="center">
+              <image id="Image4" width="60px" height="60px" align="center"/>
+            </panel>
+            <panel style="yorns-paneloff" height="100.0%" width="50.0%" childLayout="center">
+              <control style="yorns-label-text" name="label" id="GLabel4" text="Login in GameJolt"/>
+            </panel>
+          </panel>
+          
+          <panel style="yorns-paneloff" id="panel5" height="20.0%" width="100.0%" childLayout="horizontal">
+            <panel style="yorns-paneloff" height="100.0%" width="20.0%" childLayout="center">
+              <control style="yorns-label-title"  width="75%" height="100%" name="label" text="5"/>
+            </panel>
+            <panel style="yorns-paneloff" id="panel111" height="100.0%" width="30.0%" childLayout="center">
+              <image id="Image5" width="60px" height="60px" align="center"/>
+            </panel>
+            <panel style="yorns-paneloff" id="panel51" height="100.0%" width="50.0%" childLayout="center">
+              <control style="yorns-label-text" name="label" id="GLabel5" text="Login in GameJolt"/>
+            </panel>
+          </panel>
+        </panel>
+        <panel style="yorns-paneloff" id="GPanel3" height="20.0%" width="100.0%" childLayout="center">
+          <control style="yorns-button" name="button" id="GButton0" label="OK" childLayout="center">
+            <interact onClick="cancel()"/>
+          </control>
+        </panel>
+      </panel>
+    </layer>
+  </screen>
+</nifty>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<nifty xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://nifty-gui.lessvoid.com/nifty-gui" xsi:schemaLocation="https://raw.githubusercontent.com/void256/nifty-gui/1.4/nifty-core/src/main/resources/nifty.xsd https://raw.githubusercontent.com/void256/nifty-gui/1.4/nifty-core/src/main/resources/nifty.xsd">
+  <useControls filename="nifty-default-controls.xml"/>
+  <screen id="GScreenSetting" controller="br.com.expressobits.games.yorns.menu.SettingScreenAppState">
+    <layer style="yorns-layer" id="GPanel0" childLayout="center">
+      <panel style="yorns-panel" height="50%" width="80%" childLayout="vertical">
+        
+        <panel style="yorns-paneloff" height="20%" width="100%" childLayout="center">
+          <control style="yorns-label-title" name="label" text="Settings"/>
+        </panel>
+        
+        <panel style="yorns-paneloff" height="70%" width="100%" childLayout="vertical">
+          <panel style="yorns-paneloff" height="15%" width="100%" childLayout="horizontal">
+            <control style="yorns-checkbox" name="checkbox"  id="checkAudioEffect" />
+            <panel style="yorns-paneloff" height="100%" width="2%" childLayout="vertical"/>
+
+            <control style="yorns-label-text" name="label" text="Audio Effects"/>
+            
+            <effect>
+              <onHover hintStyle="yorns-hint" name="hint" hintText="Setting effects game, for example explosions sounds!" hintDelay="100"/>
+            </effect>
+          </panel>
+          
+          <panel style="yorns-paneloff" height="15%" width="100%" childLayout="horizontal">
+            <control style="yorns-checkbox" name="checkbox" id="checkAudioMusic" />
+            <panel style="yorns-paneloff" height="100%" width="2%" childLayout="vertical"/>
+            <control style="yorns-label-text" name="label" text="Audio Music"/>
+            <effect>
+              <onHover hintStyle="yorns-hint" name="hint" hintText="Setting music of game!" hintDelay="100"/>
+            </effect>
+          </panel>
+          
+          <panel style="yorns-paneloff" height="15%" width="100%" childLayout="horizontal">
+            <control style="yorns-checkbox" name="checkbox" id="checkGameWarp" />
+            <panel style="yorns-paneloff" height="100%" width="2%" childLayout="vertical"/>
+            <control style="yorns-label-text" name="label" text="Warp Grid"/>
+            <effect>
+              <onHover hintStyle="yorns-hint" name="hint" hintText="Setting warp grid of game. If true, game slowness!" hintDelay="100"/>
+            </effect>
+          </panel>
+          
+          
+        </panel>
+        <panel style="yorns-paneloff" height="10%" width="100%" childLayout="center">
+          <panel style="yorns-paneloff" height="100%" width="100%" padding="10%" childLayout="horizontal">
+            <control id="GButton8" style="yorns-button" width="40%" name="button" align="center" label="Save" childLayout="center">
+              <interact onClick="save()"/>
+            </control>
+            <panel style="yorns-paneloff" height="100%" width="20%" childLayout="center"/>
+            <control id="GButton7" style="yorns-button" width="40%" name="button" align="center" label="Cancel" childLayout="center">
+              <interact onClick="cancel()"/>
+            </control>
+          </panel>
+        </panel>
+      </panel>
+      
+    </layer>
+  </screen>
+  <popup id="popupExit" style="yorns-popup">
+    <panel style="yorns-panel-popup" childLayout="vertical">
+      <control style="yorns-label-text" name="label" id="GLabelSucess" text="Save with sucess!" height="50.0%" width="100%"/>
+      <panel style="yorns-paneloff" childLayout="center" height="50%" width="100%">
+        
+        <control style="yorns-button" name="button" id="GButton0" visibleToMouse="true"
+                 align="center" label="Return" childLayout="center">
+          <interact onClick="cancel()"/>
+        </control>
+      </panel>
+      
+    </panel>
+  </popup>
+</nifty>

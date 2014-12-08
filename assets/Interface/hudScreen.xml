@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nifty xmlns="http://nifty-gui.lessvoid.com/nifty-gui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://raw.githubusercontent.com/void256/nifty-gui/1.4/nifty-core/src/main/resources/nifty.xsd https://raw.githubusercontent.com/void256/nifty-gui/1.4/nifty-core/src/main/resources/nifty.xsd">
+  <useControls filename="nifty-default-controls.xml"/>
+  <useStyles filename="nifty-default-styles.xml"/>
+  <useStyles filename="Interface/Style/yorns-style.xml"/>
+  <screen id="GScreenHudScreen" controller="br.com.expressobits.games.yorns.menu.HUDScreenAppState">
+    <layer  id="GLayer0" renderOrder="1" childLayout="absolute">
+      <panel id="GPanelCentral" height="100%" style="yorns-paneloff" width="100%" childLayout="vertical">
+        <panel id="GPanel1" height="5.0%" style="yorns-panel" width="100%" childLayout="horizontal">
+          <panel id="GPanel11" height="100.0%" style="yorns-paneloff" width="25%" childLayout="center">
+            <control name="label"  style="yorns-hud-text" id="GLabelLevel" align="left" text="Level 000"/>
+          </panel>
+          
+          <panel id="GPanel12" height="100.0%" style="yorns-paneloff" width="25%" childLayout="horizontal">
+          </panel>
+          <panel id="GPanel13" height="100.0%" style="yorns-paneloff" width="25%" childLayout="center">
+          </panel>
+          <panel id="GPanel14" height="100.0%" style="yorns-paneloff" width="22%" childLayout="center">
+            <control name="label"  style="yorns-hud-text" id="GLabelScore" align="right" text="0000000"/>
+          </panel>
+          <panel id="GPanel14" height="100.0%" style="yorns-paneloff" width="3%" childLayout="center">
+            <control name="label"  style="yorns-hud-textanim" id="GLabelCombo" align="left" text="X1"/>
+          </panel>
+        </panel>
+        <panel id="GPanel2" height="90.0%" style="yorns-paneloff" width="100%" childLayout="horizontal"/>
+        <panel id="GPanel3" height="5.0%" style="yorns-paneloff" width="100%" childLayout="center">
+          <panel style="yorns-panel"  height="100%" width="30%" align="left" childLayout="horizontal">
+            <panel style="yorns-paneloff" height="100.0%" width="20%" childLayout="center">
+              <control style="yorns-hud-text"  width="75%" height="100%" name="label" text="1"/>
+            </panel>
+            <panel style="yorns-paneloff" height="100.0%" width="10%" childLayout="center">
+              <image id="Image1" width="100%" height="100%" align="center"/>
+            </panel>
+            <panel style="yorns-paneloff" height="100.0%" width="70.0%" childLayout="center">
+              <control style="yorns-hud-text" align="left" name="label" id="GLabel1" text="00000000000000000000000">
+                <effect>
+                  
+                  <onActive name="colorPulsate" startColor="#000f" endColor="#ff0f" period="100"/>
+                </effect>
+              </control>
+            </panel>
+          </panel>
+          
+          <panel style="yorns-panel" height="100.0%" width="30.0%" align="center" childLayout="horizontal">
+            <panel style="yorns-paneloff" height="100.0%" width="20%" childLayout="center">
+              <control style="yorns-hud-text"  width="75%" height="100%" name="label" text="2"/>
+            </panel>
+            <panel style="yorns-paneloff" height="100.0%" width="10%" childLayout="center">
+              <image id="Image2" width="100%" height="100%" align="center"/>
+            </panel>
+            <panel style="yorns-paneloff"height="100.0%" width="70.0%" childLayout="center">
+              <control style="yorns-hud-text" align="left" name="label" id="GLabel2" text="00000000000000000000000">
+                <effect>
+                  <onActive name="colorPulsate" startColor="#ff0f" endColor="#0fff" period="100"/>
+                </effect>
+              </control>
+            </panel>
+          </panel>
+          
+          <panel style="yorns-panel"height="100.0%" width="30.0%" align="right" childLayout="horizontal">
+            <panel style="yorns-paneloff" height="100.0%" width="20%" childLayout="center">
+              <control style="yorns-hud-text"  width="75%" height="100%" name="label" text="3"/>
+            </panel>
+            <panel style="yorns-paneloff"height="100.0%" width="10%" childLayout="center">
+              <image id="Image3" width="100%" height="100%" align="center"/>
+            </panel>
+            <panel style="yorns-paneloff" height="100.0%" width="70.0%" childLayout="center">
+              <control style="yorns-hud-text" align="left" name="label" id="GLabel3" text="00000000000000000000000">
+                <effect>
+                  
+                  <onActive name="colorPulsate" startColor="#f0ff" endColor="#ff0f" period="100"/>
+                </effect>
+              </control>
+            </panel>
+          </panel>
+          
+        </panel>
+      </panel>
+    </layer>
+    <layer id="GLayerBubble" renderOrder="2" childLayout="vertical">
+      <panel style="yorns-paneloff" height="10%" width="100%" childLayout="center"/>
+      <panel style="yorns-paneloff" height="10%" width="100%" childLayout="center">
+        <panel style="yorns-bubble" height="100%" width="50%" childLayout="center">
+          <panel style="yorns-paneloff"height="100.0%" width="100%" childLayout="horizontal">
+            <panel style="yorns-paneloff"height="100.0%" width="20%" childLayout="center">
+              <image id="GLabelBubbleImage" width="60%" height="80%" align="center"/>
+              
+            </panel>
+            <panel style="yorns-paneloff"height="100.0%" width="80%" childLayout="center">
+              <control style="yorns-label-text" align="right" name="label" color="#ffff" id="GLabelBubble" text="GAME OVER" height="100%" width="100%"/>
+            </panel>
+          </panel>
+        
+        
+      
+        </panel>
+      </panel>
+    </layer>
+  </screen>
+  <popup id="popupGameOverLogged" style="yorns-popup">
+    <panel style="yorns-panel-popup" childLayout="vertical">
+      
+      <control style="yorns-label-title" name="label" color="#f00f" id="GLabelTitle" text="GAME OVER" height="25.0%" width="100%"/>
+      <control style="yorns-label-text" name="label" color="#ff0f" id="GLabelPoints" text="000000000" height="25.0%" width="100%">
+        <effect>
+          <onActive name="colorPulsate" startColor="#f0ff" endColor="#ff0f" period="100"/>
+        </effect>
+      </control>
+      <control style="yorns-label-text" name="label" id="GLabelSucess1" text="Public your points?" height="25.0%" width="100%"/>
+      <panel style="yorns-paneloff" childLayout="horizontal" height="25%" width="100%">
+        <panel width="10.0%" style="yorns-paneloff" height="100.0%"/>
+        <control style="yorns-button" width="35%" name="button" id="GButton01" visibleToMouse="true"
+                 align="center" label="Public and return" childLayout="center">
+          <interact onClick="post()"/>
+        </control>
+        <panel width="10.0%" style="yorns-paneloff" height="100.0%"/>
+        <control width="35.0%" style="yorns-button" padding="10px" name="button" id="GButtonPoplogged" 
+                 align="center" label="Return" childLayout="center">
+          <interact onClick="cancel()"/>
+        </control>
+        <panel width="10.0%" style="yorns-paneloff" height="100.0%"/>
+      </panel>
+      
+    </panel>
+  </popup>
+  <popup id="popupGameOverNotLogged" style="yorns-popup">
+    <panel style="yorns-panel-popup" childLayout="vertical">
+      <control style="yorns-label-title" name="label" id="GLabelTitle" text="GAME OVER" height="50.0%" width="100%"/>
+      <control style="yorns-label-text" name="label" id="GLabelSucess2" text="Public your points?" height="25.0%" width="100%"/>
+      <panel style="yorns-paneloff" childLayout="horizontal" height="25%" width="100%">
+        <panel width="10.0%" style="yorns-paneloff" height="100.0%"/>
+        <control style="yorns-button" width="35%" name="button" id="GButton02" visibleToMouse="true"
+                 align="center" label="Public" childLayout="center">
+          <interact onClick="post()"/>
+        </control>
+        <panel width="10.0%" style="yorns-paneloff" height="100.0%"/>
+        <control width="35.0%" style="yorns-button" padding="10px" name="button" id="GButtonPopnologged" 
+                 align="center" label="Not public" childLayout="center">
+          <interact onClick="cancel()"/>
+        </control>
+        <panel width="10.0%" style="yorns-paneloff" height="100.0%"/>
+      </panel>
+      
+    </panel>
+  </popup>
+  <popup id="popupInfo" style="yorns-popup">
+    <panel style="yorns-panel-popup" childLayout="vertical">
+      <control style="yorns-label-text" name="label" id="GLabelSucess" text="Published score with sucess" height="50.0%" width="100%"/>
+      <panel style="yorns-paneloff" childLayout="center" height="50%" width="100%">
+        
+        <control width="35.0%" style="yorns-button" padding="10px" name="button" id="GButtonPopInfo" 
+                 align="center" label="OK" childLayout="center">
+          <interact onClick="cancel()"/>
+        </control>
+      </panel>
+      
+    </panel>
+  </popup>
+  
+</nifty>

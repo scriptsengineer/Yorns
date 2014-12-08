@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<nifty xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://nifty-gui.lessvoid.com/nifty-gui" xsi:schemaLocation="https://raw.githubusercontent.com/void256/nifty-gui/1.4/nifty-core/src/main/resources/nifty.xsd https://raw.githubusercontent.com/void256/nifty-gui/1.4/nifty-core/src/main/resources/nifty.xsd">
+  <registerSound id="buttonSound" filename="Interface/Sounds/Button.wav"/>
+  <registerSound id="alertSound" filename="Interface/Sounds/Alert.wav"/>
+  <registerSound id="effectSound" filename="Interface/Sounds/Effect.wav"/>
+  <registerSound id="inputSound" filename="Interface/Sounds/Erro.wav"/>
+  <useControls filename="nifty-default-controls.xml"/>
+  <useStyles filename="nifty-default-styles.xml"/>
+  <useStyles filename="Interface/Style/yorns-style.xml"/>
+  <screen id="GScreenMainMenu"  controller="br.com.expressobits.games.yorns.menu.MainMenuScreenAppState">
+    <layer style="yorns-layer" id="GLayer0" childLayout="center">
+      <panel id="GPanel0" height="70.0%" style="yorns-panel" width="50%" childLayout="vertical">
+        <panel id="GPanel1" height="20.0%" style="yorns-paneloff" width="100.0%" childLayout="center">
+          <control name="label" style="yorns-label-title" id="GLabel0" text="YORNS">
+            <effect>
+              <onActive name="colorPulsate" startColor="#00ff" endColor="#ffff" period="50"/>
+            </effect>
+          </control>
+        </panel>
+        <panel id="GPanel2" height="50.0%" style="yorns-paneloff" width="100.0%" childLayout="vertical" >
+          <control style="yorns-button" name="button" id="GButton0" visibleToMouse="true"
+                   align="center" label="Start Game" childLayout="center" y="26" x="67">
+            <interact onClick="startGame()"/>
+            <effect>
+              <onHover hintStyle="yorns-hint" name="hint" hintText="Start your game!" hintDelay="1000"/>
+            </effect>
+          </control>
+          <panel height="10.0%" style="yorns-paneloff" width="100.0%"/>
+          <control style="yorns-button" padding="10px" name="button" id="GButton3" align="center" label="Settings" childLayout="center">
+            <interact onClick="settingScreen()"/>
+            <effect>
+              <onHover hintStyle="yorns-hint" name="hint" hintText="Settings various definitions!" hintDelay="1000"/>
+            </effect>
+          </control>
+          <panel height="10.0%" style="yorns-paneloff" width="100.0%"/>
+          <control style="yorns-button" padding="10px" name="button" id="GButton2" align="center" label="Score Board" childLayout="center">
+            <interact onClick="scoreScreen()"/>
+            <effect>
+              <onHover hintStyle="yorns-hint" name="hint" hintText="Look at the best, and their scores!" hintDelay="1000"/>
+            </effect>
+          </control>
+          
+          <panel height="10.0%" style="yorns-paneloff" width="100.0%"/>
+          <control style="yorns-button" padding="10px" name="button" id="GButton4" align="center" label="About Game" childLayout="center">
+            <interact onClick="aboutGameScreen()"/>
+            <effect>
+              <onHover hintStyle="yorns-hint" name="hint" hintText="Who created this!!" hintDelay="1000"/>
+            </effect>
+          </control>
+          <panel height="10.0%" style="yorns-paneloff" width="100.0%"/>
+        </panel>
+        <panel id="GPanel3" height="30.0%" style="yorns-paneloff"width="100.0%" childLayout="vertical" valign="bottom">
+          <panel id="GPanel4" height="50.0%" style="styleDefault" width="100.0%" childLayout="center">
+            <control name="label" style="yorns-label-text" id="GLabelStatusLogged" text="Not logged!"/>
+          </panel>
+          <panel id="GPanel5" height="50.0%" style="styleDefault" width="100.0%" childLayout="center">
+            <control style="yorns-button" name="button" id="GButton5" label="Login" childLayout="center">
+              <interact onClick="loginScreen()"/>
+              <effect>
+              <onHover hintStyle="yorns-hint" name="hint" hintText="Login your account to post your score!" hintDelay="1000"/>
+            </effect>
+            </control>
+          </panel>
+        </panel>
+      </panel>
+    </layer>
+    <layer style="yorns-paneloff" id="GLayer1" childLayout="vertical">
+      <panel id="GPanelStatus" height="10.0%" style="yorns-paneloff" width="20.0%" childLayout="vertical">
+            <control name="label" color="#00ff" style="yorns-label-text" id="GLabelStatusGame" text="DEBUG MODE"/>
+          </panel>
+    </layer>
+  </screen>
+</nifty>
