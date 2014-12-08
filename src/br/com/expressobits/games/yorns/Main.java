@@ -32,7 +32,7 @@ public class Main extends SimpleApplication {
   public static Nifty nifty;
   public static NiftyJmeDisplay niftyJmeDisplay;
   private static final Logger log = Logger.getLogger(Main.class.getName());
-  public static boolean debug = true;
+  public static boolean debug = false;
   public static boolean online = true;
   public static float camDistance = 300f;
 

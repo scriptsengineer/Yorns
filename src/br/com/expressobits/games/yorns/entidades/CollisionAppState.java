@@ -4,6 +4,7 @@
  */
 package br.com.expressobits.games.yorns.entidades;
 
+import br.com.expressobits.games.yorns.GameAppState;
 import br.com.expressobits.games.yorns.Main;
 import br.com.expressobits.games.yorns.audio.AudioAppState;
 import br.com.expressobits.games.yorns.file.DataAppState;

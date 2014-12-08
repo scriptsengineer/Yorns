@@ -64,7 +64,7 @@ modeltype:node
 active:true
 type:Player
 color:#-0-255-0-255
-speed:5
+speed:200
 radius:1
 life:1
 control:player
