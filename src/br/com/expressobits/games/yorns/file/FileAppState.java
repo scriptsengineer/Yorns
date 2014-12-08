@@ -24,7 +24,7 @@ public class FileAppState extends AbstractAppState {
 
   SimpleApplication app;
   private static String FORMAT = ".dat";
-  private static String LOCAL = "data/";
+  private static String LOCAL = "resources/";
 
   @Override
   public void initialize(AppStateManager stateManager, Application app) {
