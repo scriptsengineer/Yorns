@@ -40,7 +40,7 @@ speed:5
 type:enemy
 radius:4
 life:1
-control:seeker
+control:wanderer
 }
 
 {
@@ -55,11 +55,12 @@ type:enemy
 radius:4
 life:1
 control:seeker
+control:shooter
 }
 
 {
 name:Player
-geom:sphere
+geom:box
 modeltype:node
 active:true
 type:Player
@@ -84,6 +85,19 @@ life:1
 }
 
 {
+name:BulletEnemy
+geom:sphere
+active:true
+modeltype:spatial
+type:bullet
+subtype:1
+color:#-126-126-255-255
+speed:500
+radius:1
+life:1
+}
+
+{
 name:BulletExtraPowerUp
 geom:box
 active:true
@@ -94,6 +108,8 @@ color:#-255-0-255-255
 speed:200
 radius:1
 life:1
+control:seeker
+control:rotate
 }
 
 {
@@ -107,6 +123,8 @@ color:#-255-0-255-255
 speed:200
 radius:1
 life:1
+control:seeker
+control:rotate
 }
 
 {
@@ -115,11 +133,13 @@ geom:box
 active:true
 modeltype:spatial
 type:powerUp
-subtype:3
+subtype:1
 color:#-255-0-255-255
 speed:200
-radius:1
+radius:10
 life:1
+control:seeker
+control:rotate
 }
 
 {
@@ -133,15 +153,6 @@ color:#-255-0-255-255
 speed:200
 radius:1
 life:1
+control:seeker
+control:rotate
 }
-//Enemy:0:GreenEnemy:green:#-0-255-0-255:5:4:1:wanderer:rotate
-//Enemy:1:RedEnemy:sphere:#-255-0-0-255:5:4:1:seeker
-//Enemy:2:YellowEnemy:yellow:#-255-255-0-255:5:4:4:wanderer:rotate
-//Enemy:3:BlueEnemy:box:#-0-0-255-255:4:4:1:seeker:shooter
-//PowerUp:0:BulletExtraPowerUp:sphere:#-255-0-255-255:2:1:1:seeker
-//PowerUp:1:BulletSpeedPowerUp:sphere:#-255-0-255-255:2:1:1:seeker
-//PowerUp:2:FreezePowerUp:sphere:#-255-0-255-255:2:1:1:seeker
-//PowerUp:3:ProtectPowerUp:sphere:#-255-0-255-255:2:1:1:seeker
-//Player:0:Player:red:#-255-255-255-255:200:1:1
-//Bullet:0:Bullet:sphere:#-255-126-0-255:5000:1:1:bullet
-//BulletEnemy:0:BulletEnemy:sphere:#-0-255-255-255:500:1:1:bullet
