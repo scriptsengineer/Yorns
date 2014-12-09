@@ -15,6 +15,9 @@ import com.jme3.app.Application;
 import com.jme3.app.SimpleApplication;
 import com.jme3.app.state.AbstractAppState;
 import com.jme3.app.state.AppStateManager;
+import com.jme3.light.AmbientLight;
+import com.jme3.light.PointLight;
+import com.jme3.math.ColorRGBA;
 import com.jme3.math.Vector2f;
 import com.jme3.math.Vector3f;
 import com.jme3.scene.Node;
@@ -297,6 +300,7 @@ public class EntidadeAppState extends AbstractAppState {
       Vector3f finalOffset;
       Vector3f trans;
       Spatial bullet = app.getStateManager().getState(DataAppState.class).loadModelSpatial(1, "Bullet");
+          
       if (i
               == 0) {
         finalOffset = aim.add(offset).mult((n - 1) * 0);

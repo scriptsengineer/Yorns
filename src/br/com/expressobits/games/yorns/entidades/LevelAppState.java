@@ -10,8 +10,14 @@ import com.jme3.app.Application;
 import com.jme3.app.SimpleApplication;
 import com.jme3.app.state.AbstractAppState;
 import com.jme3.app.state.AppStateManager;
+import com.jme3.light.AmbientLight;
+import com.jme3.material.Material;
+import com.jme3.math.ColorRGBA;
 import com.jme3.math.Vector3f;
+import com.jme3.scene.Geometry;
 import com.jme3.scene.Node;
+import com.jme3.scene.Spatial;
+import com.jme3.scene.shape.Box;
 import java.util.Random;
 
 /**
@@ -26,6 +32,10 @@ public class LevelAppState extends AbstractAppState{
   private float enemySpawnChance = 300;
   private int level = 0;
   private static int levelQuantidadeMaxEnemies = 40;
+  private static int SIZEBLOCK = 10;
+  private static int SIZEX = 80;
+  private static int SIZEY = 60;
+  private Node nodeLevel = new Node("NodeLevel");
   
   private int ENEMY_LIMIT_COOL_DOWN = 100;
   
@@ -33,6 +43,12 @@ public class LevelAppState extends AbstractAppState{
   public void initialize(AppStateManager stateManager, Application app) {
     super.initialize(stateManager, app); //To change body of generated methods, choose Tools | Templates.
     this.app = (SimpleApplication)app;
+    this.app.getRootNode().attachChild(nodeLevel);
+        /** A white ambient light source. */ 
+    AmbientLight ambient = new AmbientLight();
+    ambient.setColor(ColorRGBA.White);
+    this.app.getRootNode().addLight(ambient); 
+    createLevel();
   }
 
   @Override
@@ -41,6 +57,45 @@ public class LevelAppState extends AbstractAppState{
     if((Boolean)app.getRootNode().getChild(EntidadeAppState.NODEPLAYER).getUserData("alive")){
       spawnEnemies();
     }
+  }
+  
+  private void createLevel(){
+    for (int i = 0; i <= SIZEX; i++) {
+      for (int j = 0; j <= SIZEY; j++) {
+        if(i==0){
+          Spatial sp = createBasicBlock();
+          sp.setLocalTranslation((i-1)*SIZEBLOCK, j*SIZEBLOCK, 0);
+          nodeLevel.attachChild(sp);
+        }
+        if(i==SIZEX){
+          Spatial sp = createBasicBlock();
+          sp.setLocalTranslation((i+1)*SIZEBLOCK, j*SIZEBLOCK, 0);
+          nodeLevel.attachChild(sp);
+        }
+        if(j==0){
+          Spatial sp = createBasicBlock();
+          sp.setLocalTranslation(i*SIZEBLOCK, (j-1)*SIZEBLOCK, 0);
+          nodeLevel.attachChild(sp);
+        }
+        if(j==SIZEY){
+          Spatial sp = createBasicBlock();
+          sp.setLocalTranslation(i*SIZEBLOCK, (j+1)*SIZEBLOCK, 0);
+          nodeLevel.attachChild(sp);
+        }
+      }
+    }
+  }
+  
+  private Spatial createBasicBlock(){
+    
+    Box boxMesh = new Box(SIZEBLOCK-6,SIZEBLOCK-6,SIZEBLOCK-6); 
+    Geometry boxGeo = new Geometry("Colored Box", boxMesh); 
+    Material boxMat = new Material(app.getAssetManager(),"Common/MatDefs/Light/Lighting.j3md"); 
+    boxMat.setBoolean("UseMaterialColors", true); 
+    boxMat.setColor("Ambient", ColorRGBA.Blue); 
+    boxMat.setColor("Diffuse", ColorRGBA.Blue); 
+    boxGeo.setMaterial(boxMat); 
+    return boxGeo;
   }
   
   private void spawnEnemies() {

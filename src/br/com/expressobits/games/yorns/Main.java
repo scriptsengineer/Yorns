@@ -27,7 +27,7 @@ public class Main extends SimpleApplication {
   public StateManager sm;
   public SettingAppState settingAppState;
   public static BloomFilter bloom;
-  public static float bloomIntensity = 2f;
+  public static float bloomIntensity = 1f;
   public static FilterPostProcessor fpp;
   public static Nifty nifty;
   public static NiftyJmeDisplay niftyJmeDisplay;
