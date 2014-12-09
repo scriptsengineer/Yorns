@@ -6,28 +6,17 @@ package br.com.expressobits.games.yorns.menu;
 
 import br.com.expressobits.games.yorns.Main;
 import br.com.expressobits.games.yorns.gj.GameJoltAppState;
-import static br.com.expressobits.games.yorns.menu.LoginScreenAppState.s;
 import com.jme3.app.Application;
 import com.jme3.app.SimpleApplication;
 import com.jme3.app.state.AbstractAppState;
 import com.jme3.app.state.AppStateManager;
-import com.jme3.asset.plugins.UrlLocator;
 import de.lessvoid.nifty.Nifty;
-import de.lessvoid.nifty.batch.spi.BatchRenderBackend;
-import de.lessvoid.nifty.builder.PanelBuilder;
 import de.lessvoid.nifty.controls.Label;
-import de.lessvoid.nifty.controls.ListBox;
-import de.lessvoid.nifty.controls.TextField;
-import de.lessvoid.nifty.controls.dynamic.PanelCreator;
-import de.lessvoid.nifty.controls.dynamic.TextCreator;
-import de.lessvoid.nifty.elements.Element;
 import de.lessvoid.nifty.elements.render.ImageRenderer;
 import de.lessvoid.nifty.screen.Screen;
 import de.lessvoid.nifty.screen.ScreenController;
-import de.lessvoid.nifty.tools.SizeValue;
-import java.awt.Panel;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -35,6 +24,7 @@ import java.util.List;
  */
 public class ScoreScreenAppState extends AbstractAppState implements ScreenController {
 
+  private static final Logger logger = Logger.getLogger(ScoreScreenAppState.class.getName());
   public SimpleApplication app;
 
   @Override
@@ -59,9 +49,7 @@ public class ScoreScreenAppState extends AbstractAppState implements ScreenContr
   }
 
   public void bind(Nifty nifty, Screen screen) {
-    System.out.println("bind( " + screen.getScreenId() + ")");
-
-    
+    logger.log(Level.INFO,"bind ( {0} )",screen.getScreenId());
     if(GameJoltAppState.connect){
       for (int i = 0; i < 5; i++) {
       String s;

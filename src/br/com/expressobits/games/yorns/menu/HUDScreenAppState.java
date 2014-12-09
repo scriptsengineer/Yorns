@@ -27,6 +27,8 @@ import de.lessvoid.nifty.screen.Screen;
 import de.lessvoid.nifty.screen.ScreenController;
 import de.lessvoid.nifty.tools.Color;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -34,6 +36,8 @@ import java.util.ArrayList;
  */
 public class HUDScreenAppState extends AbstractAppState implements ScreenController {
 
+  private static final Logger logger = Logger.getLogger(HUDScreenAppState.class.getName());
+  
   public SimpleApplication app;
   static String s;
   long multiplicarTime;
@@ -114,7 +118,7 @@ public class HUDScreenAppState extends AbstractAppState implements ScreenControl
   }
 
   public void bind(Nifty nifty, Screen screen) {
-    System.out.println("bind( " + screen.getScreenId() + ")");
+    logger.log(Level.INFO,"bind( {0} )",screen.getScreenId());
     labelScore = nifty.getCurrentScreen().findNiftyControl("GLabelScore", Label.class);
     labelLevel = nifty.getCurrentScreen().findNiftyControl("GLabelLevel", Label.class);
     labelCombo = nifty.getCurrentScreen().findNiftyControl("GLabelCombo", Label.class);
@@ -128,18 +132,17 @@ public class HUDScreenAppState extends AbstractAppState implements ScreenControl
     
     for (int i = 0; i < 3; i++) {
       if(!GameJoltAppState.connect){
-        String s = "Login to view highscore!";
-      System.out.println(s);
-      Main.nifty.getCurrentScreen().findNiftyControl("GLabel" + (i + 1), Label.class).setText(s);
+        String string = "Login to view highscore!";;
+      Main.nifty.getCurrentScreen().findNiftyControl("GLabel" + (i + 1), Label.class).setText(string);
       Main.nifty.getCurrentScreen().findNiftyControl("GLabel" + (i + 1), Label.class).setColor(new Color("#fff8"));
       Main.nifty.getCurrentScreen().findElementByName("Image" + (i + 1)).getRenderer(ImageRenderer.class)
               .setImage(app.getStateManager().getState(GameJoltAppState.class).imagesScores.get(i));
       }else{
-      String s = 
+      String string = 
               app.getStateManager().getState(GameJoltAppState.class).highScores.get(i).getUsername()+" - "+
               app.getStateManager().getState(GameJoltAppState.class).highScores.get(i).getScoreValue();
-      System.out.println(s);
-      Main.nifty.getCurrentScreen().findNiftyControl("GLabel" + (i + 1), Label.class).setText(s);
+      
+      Main.nifty.getCurrentScreen().findNiftyControl("GLabel" + (i + 1), Label.class).setText(string);
       Main.nifty.getCurrentScreen().findNiftyControl("GLabel" + (i + 1), Label.class).setColor(new Color("#fff8"));
       Main.nifty.getCurrentScreen().findElementByName("Image" + (i + 1)).getRenderer(ImageRenderer.class)
               .setImage(app.getStateManager().getState(GameJoltAppState.class).imagesScores.get(i));

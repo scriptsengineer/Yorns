@@ -219,11 +219,6 @@ public class EntidadeAppState extends AbstractAppState {
 //      ray.intersectsWherePlane(plane, mousePositionWorld);
 //      mousePositionWorld.z = 0;
 
-//      System.out.println("-------------\nCAM DEBUG");
-//      System.out.println("click2d \t"+click2d);
-//      System.out.println("click3d \t"+click3d);
-//      System.out.println("diretion \t"+direction);
-//      System.out.println("directionNormal "+directionNormal);
     return directionDiferencial.normalizeLocal();
 
 
@@ -239,7 +234,6 @@ public class EntidadeAppState extends AbstractAppState {
 
       } else {
         //particleAppState.playerExplosion(player.getLocalTranslation());
-        //System.out.println(player.getUserData("points"));
         //nodePlayer.removeFromParent();
         nodePlayer.getControl(PlayerControl.class).reset();
         nodePlayer.setUserData("alive", false);

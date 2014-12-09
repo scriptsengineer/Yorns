@@ -7,7 +7,6 @@ package br.com.expressobits.games.yorns.entidades;
 import br.com.expressobits.games.yorns.GameAppState;
 import br.com.expressobits.games.yorns.entidades.warp.Grid;
 import br.com.expressobits.games.yorns.particles.ParticleAppState;
-import br.com.expressobits.games.yorns.settings.SettingAppState;
 import com.jme3.math.ColorRGBA;
 import com.jme3.math.Vector3f;
 import com.jme3.renderer.RenderManager;

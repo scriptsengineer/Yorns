@@ -8,19 +8,16 @@ import br.com.expressobits.games.yorns.entidades.PlayerControl;
 import br.com.expressobits.games.yorns.gj.GameJoltAppState;
 import br.com.expressobits.games.yorns.menu.HUDScreenAppState;
 import com.jme3.app.Application;
-import com.jme3.app.SimpleApplication;
 import com.jme3.app.state.AbstractAppState;
 import com.jme3.app.state.AppStateManager;
-import com.jme3.cursors.plugins.JmeCursor;
 import com.jme3.input.KeyInput;
 import com.jme3.input.MouseInput;
 import com.jme3.input.controls.ActionListener;
 import com.jme3.input.controls.AnalogListener;
 import com.jme3.input.controls.KeyTrigger;
 import com.jme3.input.controls.MouseButtonTrigger;
-import com.jme3.input.controls.Trigger;
-import com.jme3.math.Vector3f;
-import com.jme3.scene.Spatial;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -29,6 +26,7 @@ import com.jme3.scene.Spatial;
 public class InputAppState extends AbstractAppState implements ActionListener, AnalogListener {
 
   private Main app;
+  private static final Logger logger = Logger.getLogger("InputSystem");
 
   @Override
   public void initialize(AppStateManager stateManager, Application app) {
@@ -72,7 +70,7 @@ public class InputAppState extends AbstractAppState implements ActionListener, A
           app.getRootNode().getChild("Player").getControl(PlayerControl.class).right = isPressed;
         }
         if (name.equals("retornaMenu") && !isPressed && Main.debug) {
-          System.out.println("ACTION DEBUG");
+          logger.log(Level.INFO,"Action debug");
           app.getStateManager().getState(HUDScreenAppState.class).showBubble(
                   "sdjkasjkd",
                           2000);

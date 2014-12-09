@@ -11,11 +11,12 @@ import com.jme3.app.Application;
 import com.jme3.app.SimpleApplication;
 import com.jme3.app.state.AbstractAppState;
 import com.jme3.app.state.AppStateManager;
-import com.jme3.niftygui.NiftyJmeDisplay;
 import de.lessvoid.nifty.Nifty;
 import de.lessvoid.nifty.controls.Label;
 import de.lessvoid.nifty.screen.Screen;
 import de.lessvoid.nifty.screen.ScreenController;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,6 +24,7 @@ import de.lessvoid.nifty.screen.ScreenController;
  */
 public class MainMenuScreenAppState extends AbstractAppState implements ScreenController {
 
+  private static final Logger logger = Logger.getLogger(HUDScreenAppState.class.getName());
   public SimpleApplication app;
   static Label labelMessagePopup;
   static String s;
@@ -83,7 +85,7 @@ public class MainMenuScreenAppState extends AbstractAppState implements ScreenCo
   }
 
   public void bind(Nifty nifty, Screen screen) {
-    System.out.println("bind( " + screen.getScreenId() + ")");
+    logger.log(Level.INFO,"bind( {0} )",screen.getScreenId());
     if (GameJoltAppState.logged) {
       nifty.getCurrentScreen().findNiftyControl("GLabelStatusLogged", Label.class).setText("Logged with " + app.getStateManager().getState(GameJoltAppState.class).getNameUser());
     } else {

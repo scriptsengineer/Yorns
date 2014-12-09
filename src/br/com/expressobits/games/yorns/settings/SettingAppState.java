@@ -11,6 +11,8 @@ import com.jme3.app.SimpleApplication;
 import com.jme3.app.state.AbstractAppState;
 import com.jme3.app.state.AppStateManager;
 import com.jme3.system.AppSettings;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.prefs.BackingStoreException;
 import org.gamejolt.GameJoltAPI;
 
@@ -20,6 +22,7 @@ import org.gamejolt.GameJoltAPI;
  */
 public class SettingAppState extends AbstractAppState{
 
+  private static final Logger logger = Logger.getLogger(SettingAppState.class.getName());
   public static final String AUDIOMUSIC = "audiomusic";
   public static final String AUDIOEFFECT = "audioeffect";
   public static final String GAMEWARP = "warpgrid";
@@ -51,9 +54,9 @@ public class SettingAppState extends AbstractAppState{
   public void onSave(){
     try{
       settings.save("br.com.expressobits.games.yorns");
-      System.out.println("SAVE WITH SUCESS");
+      logger.log(Level.INFO,"Sucess on save your settings!");
     }catch(BackingStoreException ex){
-      System.out.println(ex);
+      logger.log(Level.WARNING,"Error on save your settings!");
     }
     app.getContext().setSettings(settings);
   }
@@ -69,13 +72,13 @@ public class SettingAppState extends AbstractAppState{
     try{
       settings.load("br.com.expressobits.games.yorns");
       if(settings.containsKey(GAMEWARP)){
-        System.out.println("LOADED");
+        logger.log(Level.INFO,"Sucess on load your settings!");
       }else{
-        System.out.println("LOADED DEFAULT");
+         logger.log(Level.INFO,"Not found settings, load default configuration!");
         loadDefaults();
       }
     }catch(BackingStoreException ex){
-      System.out.println(ex);
+      logger.log(Level.WARNING,"Error on load your settings! - {0}",ex);
     }
     
   }

@@ -16,6 +16,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.gamejolt.GameJoltAPI;
 import org.gamejolt.Highscore;
 import org.gamejolt.Trophy;
@@ -27,6 +29,7 @@ import org.gamejolt.User;
  */
 public class GameJoltAppState extends AbstractAppState {
 
+  private static final Logger logger = Logger.getLogger(GameJoltAppState.class.getName());
   SimpleApplication app;
   public static boolean logged;
   final static int GAME_ID = 37955;
@@ -63,7 +66,7 @@ public class GameJoltAppState extends AbstractAppState {
     super.initialize(stateManager, app); //To change body of generated methods, choose Tools | Templates.
     this.app = (SimpleApplication) app;
     
-    System.out.println("Connection with internet status:"+connect);
+    logger.log(Level.INFO,"Connection with internet status: {0}",connect?"OK":"Failure");
     if (connect) {
       api = new GameJoltAPI(GAME_ID, GAME_PRIVATE_KEY);
       api.setVerbose(Main.debug);

@@ -22,6 +22,8 @@ import de.lessvoid.nifty.elements.Element;
 import de.lessvoid.nifty.screen.Screen;
 import de.lessvoid.nifty.screen.ScreenController;
 import de.lessvoid.nifty.tools.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -29,6 +31,7 @@ import de.lessvoid.nifty.tools.Color;
  */
 public class LoginScreenAppState extends AbstractAppState implements ScreenController {
 
+  private static final Logger logger = Logger.getLogger(LoginScreenAppState.class.getName());
   public SimpleApplication app;
   Label labelResult;
   static String s;
@@ -75,7 +78,7 @@ public class LoginScreenAppState extends AbstractAppState implements ScreenContr
   }
 
   public void bind(Nifty nifty, Screen screen) {
-    System.out.println("bind( " + screen.getScreenId() + ")");
+    logger.log(Level.INFO,"bind( {0} )",screen.getScreenId());
 
     if (screen.getScreenId().equals("GScreenLogin")) {
       popupElement = Main.nifty.createPopup("popupExit");

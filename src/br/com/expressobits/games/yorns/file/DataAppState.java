@@ -16,8 +16,8 @@ import com.jme3.scene.Spatial;
 import com.jme3.scene.shape.Box;
 import com.jme3.scene.shape.Sphere;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Carrega e armazena
@@ -26,6 +26,7 @@ import java.util.List;
  */
 public class DataAppState extends AbstractAppState {
 
+  private static final Logger logger = Logger.getLogger(DataAppState.class.getName());
   /**
    * Entidades a serem carregadas são anexadas para este Nó.
    */
@@ -76,7 +77,6 @@ public class DataAppState extends AbstractAppState {
           entities.attachChild(loadEntity(linesSpatial));
           linesSpatial = new ArrayList<String>();
         } else {
-          System.out.println(lines.get(i));
           linesSpatial.add(lines.get(i));
         }
       } else {
@@ -127,7 +127,7 @@ public class DataAppState extends AbstractAppState {
         sp.setUserData(key + value, value);
       }
     }
-    System.out.println("LOADED " + getValue(lines, STRINGNAME));
+    logger.log(Level.INFO,"Loaded Spatial {0} with sucess!",sp.getName());
     return sp;
   }
 
@@ -140,7 +140,7 @@ public class DataAppState extends AbstractAppState {
     for (int i = 0; i < lines.size(); i++) {
       if (lines.get(i).split(":")[0].equals(key)) {
         value = lines.get(i).split(":")[1];
-        System.out.println("Loade key-" + lines.get(i).split(":")[0] + "(" + lines.get(i).split(":")[1] + ")");
+        logger.log(Level.FINEST,"Loaded key-{0}({1})",lines.get(i).split(":"));
         break;
       }
 
@@ -166,13 +166,13 @@ public class DataAppState extends AbstractAppState {
               Float.parseFloat(scolor[3]),
               Float.parseFloat(scolor[4]));
     } else {
-      System.out.println("ERRO NO COLOR");
+      logger.log(Level.WARNING,"Parameter invalid of color - {0}",s);
       return ColorRGBA.White;
     }
   }
 
   public Spatial loadModelSpatial(int size, String name) {
-    System.out.println("LOADED " + name);
+    logger.log(Level.INFO,"Loaded spatial {0}",name);
     Spatial sp = entities.getChild(name).clone();
     sp.setLocalScale(size);
     sp.setUserData("radius", ((Float) sp.getUserData("radius")) * size);
@@ -181,7 +181,7 @@ public class DataAppState extends AbstractAppState {
   }
 
   public Node loadModelNode(int size, String name) {
-    System.out.println("LOADED " + name);
+    logger.log(Level.INFO,"Loaded spatial {0}",name);
     Node sp = (Node) entities.getChild(name).clone();
     sp.setLocalScale(size);
     sp.setUserData("radius", ((Float) sp.getUserData("radius")) * size);

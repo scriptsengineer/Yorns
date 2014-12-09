@@ -133,7 +133,6 @@ public class LevelAppState extends AbstractAppState{
           level++;
           ENEMY_LIMIT_COOL_DOWN = ENEMY_LIMIT_COOL_DOWN - 10;
         }
-        //System.out.println("enemySpawnChance " + enemySpawnChance);
         enemySpawnChance -= 0.5;
       }
     }

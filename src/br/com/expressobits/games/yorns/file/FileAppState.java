@@ -41,7 +41,8 @@ public class FileAppState extends AbstractAppState {
       String line = reader.readLine();
       while (line != null) {
         if(line.contains("//")){
-          System.out.println(line);
+          //Fazer alguma coisa de comentário
+          //System.out.println(line);
         }else{
           lines.add(line);
         

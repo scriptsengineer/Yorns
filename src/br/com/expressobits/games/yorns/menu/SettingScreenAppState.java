@@ -15,6 +15,8 @@ import de.lessvoid.nifty.controls.CheckBox;
 import de.lessvoid.nifty.elements.Element;
 import de.lessvoid.nifty.screen.Screen;
 import de.lessvoid.nifty.screen.ScreenController;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -22,6 +24,7 @@ import de.lessvoid.nifty.screen.ScreenController;
  */
 public class SettingScreenAppState extends AbstractAppState implements ScreenController {
 
+  private static final Logger logger = Logger.getLogger(SettingScreenAppState.class.getName());
   SimpleApplication app;
   CheckBox checkAudioEffect;
   CheckBox checkAudioMusic;
@@ -63,7 +66,7 @@ public class SettingScreenAppState extends AbstractAppState implements ScreenCon
   }
 
   public void bind(Nifty nifty, Screen screen) {
-    System.out.println("bind( " + screen.getScreenId() + ")");
+    logger.log(Level.INFO,"bind( {0} )",screen.getScreenId());
     
     popupElement = Main.nifty.createPopup("popupExit");
     

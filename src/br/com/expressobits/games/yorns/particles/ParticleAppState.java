@@ -52,13 +52,9 @@ public class ParticleAppState extends AbstractAppState {
     for (int i = 0; i < particlesExplosion.getQuantity(); i++) {
       if (particlesExplosion.getChild(i).getUserData("initTime") == null) {
         particlesExplosion.getChild(i).setUserData("initTime", time);
-        System.out.println("l");
       }
-      System.out.println(" " + ((Float) particlesExplosion.getChild(i).getUserData("initTime")) + " - " + time);
-      System.out.println(" MED" + (time - ((Float) particlesExplosion.getChild(i).getUserData("initTime"))));
       if (((Float) particlesExplosion.getChild(i).getUserData("lifeTime"))
               < (time - ((Float) particlesExplosion.getChild(i).getUserData("initTime")))) {
-        System.out.println("DE");
         particlesExplosion.detachChild(particlesExplosion.getChild(i));
       } else {
         if (((Float) particlesExplosion.getChild(i).getUserData("lifeTime")) / 9
