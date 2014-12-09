@@ -3,7 +3,7 @@
 //zacimaxdireitayatras
 {
 name:GreenEnemy
-geom:sphere
+geom:green
 active:true
 type:enemy
 subtype:0
@@ -60,11 +60,11 @@ control:shooter
 
 {
 name:Player
-geom:box
+geom:red
 modeltype:node
 active:true
 type:Player
-color:#-0-255-0-255
+color:#-126-255-126-255
 speed:200
 radius:1
 life:1
