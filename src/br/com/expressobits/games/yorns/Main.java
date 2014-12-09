@@ -130,4 +130,12 @@ public class Main extends SimpleApplication {
     nifty = niftyJmeDisplay.getNifty();
     //this.app.getViewPort().addProcessor(niftyJmeDisplay);
   }
+
+  @Override
+  public void handleError(String errMsg, Throwable t) {
+    System.out.println("ERRO -\n"+t.getCause());
+    app.restart();
+  }
+  
+  
 }
