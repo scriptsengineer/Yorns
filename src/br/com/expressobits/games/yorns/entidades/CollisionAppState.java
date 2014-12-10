@@ -138,7 +138,7 @@ public class CollisionAppState extends AbstractAppState {
                 break;
             }
 
-            if (GameJoltAppState.logged || Main.debug) {
+            if (GameJoltAppState.logged) {
               //ACHIEVED
 
               GameJoltAppState api = entidadeAppState.app.getStateManager().getState(GameJoltAppState.class);

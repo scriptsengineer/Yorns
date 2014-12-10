@@ -27,12 +27,15 @@ import java.util.logging.Logger;
 public class DataAppState extends AbstractAppState {
 
   private static final Logger logger = Logger.getLogger(DataAppState.class.getName());
+  public static final String[] NAMELEVEL_DATA = {"EnemiesData","Random"};
   /**
    * Entidades a serem carregadas são anexadas para este Nó.
    */
   private Node entities;
+  private Node levels;
   private SimpleApplication app;
-  private String fileName = "entities";
+  private String fileEntitiesName = "entities";
+  private String fileLevelName = "levels/level";
   public static String STRINGNAME = "name";
   public static String STRINGMODELTYPE = "modeltype";
   public static String STRINGGEOM = "geom";
@@ -59,14 +62,16 @@ public class DataAppState extends AbstractAppState {
   @Override
   public void initialize(AppStateManager stateManager, Application app) {
     super.initialize(stateManager, app); //To change body of generated methods, choose Tools | Templates.
-    this.entities = new Node("data");
+    this.entities = new Node("entities");
+    this.levels = new Node("levels");
     this.app = (SimpleApplication) app;
     this.loadEntities();
+    this.loadLevels();
   }
 
   public void loadEntities() {
 
-    ArrayList<String> lines = app.getStateManager().getState(FileAppState.class).loadFile(fileName);
+    ArrayList<String> lines = app.getStateManager().getState(FileAppState.class).loadFile(fileEntitiesName);
 
     ArrayList<String> linesSpatial = new ArrayList<String>();
     boolean intoSpatial = false;
@@ -86,6 +91,43 @@ public class DataAppState extends AbstractAppState {
         }
       }
     }
+  }
+  
+  /**
+   * Carrega cada level da pasta levels  armazena em um Node "levels".
+   * <b>Pode-se implementar posteriormente um método diferenciado para cada level.</b>
+   */
+  public void loadLevels(){
+    for (int i = 0; i < 1; i++) {
+      ArrayList<String> lines = app.getStateManager().getState(FileAppState.class).loadFile(fileLevelName+(i+1));
+      Node nodelevel = new Node(fileLevelName+i);
+      boolean intoDate = false;
+      int type = 0;
+      Node nodeType = new Node(NAMELEVEL_DATA[type]);
+      for (int j = 0; j < lines.size(); j++) {
+        
+        if(intoDate){
+          if(lines.get(j).contains("}")){
+            intoDate = false;
+            nodelevel.attachChild(nodeType);
+            
+            
+          }else{
+            nodelevel.setUserData(lines.get(j).split(":")[0],lines.get(j).split(":")[1]);
+            logger.log(Level.INFO,"level {0}:{1}",lines.get(j).split(":"));
+          }
+        }else{
+          if(lines.get(j).contains("{")){
+            intoDate = true;
+            type++;
+            nodeType = new Node(NAMELEVEL_DATA[type]);
+          }
+        }
+      }
+      levels.attachChild(nodelevel);
+      logger.log(Level.INFO,"Load level {0}...",levels.getQuantity());
+    }
+    
   }
 
   public Spatial loadEntity(ArrayList<String> lines) {
@@ -225,5 +267,16 @@ public class DataAppState extends AbstractAppState {
 
 
     return sp;
+  }
+  
+  /**
+   * Retorna um node level correspondente!
+   * <p>Cada node é composto por <i>types</i> definidas na classe.
+   * @param i número do level e <b>começa por 0!</b>
+   * @return 
+   */
+  public Node getLevel(int i){
+    logger.log(Level.INFO,"Open level {0}",i);
+    return ((Node)levels.getChild(i).clone());
   }
 }

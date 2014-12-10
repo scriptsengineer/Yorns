@@ -3,7 +3,7 @@
 //zacimaxdireitayatras
 {
 name:GreenEnemy
-geom:sphere
+geom:green
 active:true
 type:enemy
 subtype:0
@@ -31,7 +31,7 @@ control:seeker
 
 {
 name:YellowEnemy
-geom:sphere
+geom:yellow
 type:enemy
 active:true
 subtype:2

@@ -215,7 +215,7 @@ public class GameJoltAppState extends AbstractAppState {
   }
 
   public Trophy getTrophyString(String id) {
-
+    
     for (int i = 0; i < trophys.size(); i++) {
       if (trophys.get(i).getId().equals(id)) {
         return trophys.get(i);

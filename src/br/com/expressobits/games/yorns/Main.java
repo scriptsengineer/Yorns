@@ -13,6 +13,7 @@ import de.lessvoid.nifty.Nifty;
 import com.jme3.app.SimpleApplication;
 import com.jme3.material.Material;
 import com.jme3.math.ColorRGBA;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -32,7 +33,7 @@ public class Main extends SimpleApplication {
   public static Nifty nifty;
   public static NiftyJmeDisplay niftyJmeDisplay;
   private static final Logger log = Logger.getLogger(Main.class.getName());
-  public static boolean debug = false;
+  public static boolean debug = true;
   public static boolean online = true;
   public static float camDistance = 300f;
 
@@ -48,6 +49,9 @@ public class Main extends SimpleApplication {
     setShowSettings(false);
     setSettings(settingAppState.settings);
     start();
+    if(debug){
+      Logger.getGlobal().setLevel(Level.ALL);
+    }
   }
 
   @Override
@@ -131,11 +135,6 @@ public class Main extends SimpleApplication {
     //this.app.getViewPort().addProcessor(niftyJmeDisplay);
   }
 
-  @Override
-  public void handleError(String errMsg, Throwable t) {
-    System.out.println("ERRO -\n"+t.getCause());
-    app.restart();
-  }
   
   
 }

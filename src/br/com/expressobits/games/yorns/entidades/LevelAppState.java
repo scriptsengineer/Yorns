@@ -28,27 +28,49 @@ public class LevelAppState extends AbstractAppState{
 
   SimpleApplication app;
   
-  private long enemySpawnCooldown;
-  private float enemySpawnChance = 300;
+  /**
+   * Tempo entre spawn de inimigos
+   */
+  private static final int ENEMY_LIMIT_COOL_DOWN = 25;
+  /**
+   * Último tempo que foi spawn inimigos
+   */
+  private long lastEnemySpawnTime;
+  /**
+   * Chance <b>inicial</b> de spawnar novos inimigos.
+   */
+  private static final int CHANCESPAWN_INICIAL = 50;
+  /**
+   * Chance atual de spawnar inimigos.
+   */
+  private float spawnChanceEnemy = 50;
+  /**
+   * Level atual.
+   */
   private int level = 0;
-  private static int levelQuantidadeMaxEnemies = 40;
+  /**
+   * Número <b>máximo</b> de inimigos que podem ter na tela.
+   */
+  private static final int NUMERO_MAXIMO_DE_INIMIGOS = 50;
+  
+  
   private static int SIZEBLOCK = 10;
   private static int SIZEX = 80;
   private static int SIZEY = 60;
-  private Node nodeLevel = new Node("NodeLevel");
   
-  private int ENEMY_LIMIT_COOL_DOWN = 100;
+  Node nodeLevel = new Node();
+  
   
   @Override
   public void initialize(AppStateManager stateManager, Application app) {
     super.initialize(stateManager, app); //To change body of generated methods, choose Tools | Templates.
     this.app = (SimpleApplication)app;
-    this.app.getRootNode().attachChild(nodeLevel);
         /** A white ambient light source. */ 
     AmbientLight ambient = new AmbientLight();
     ambient.setColor(ColorRGBA.White);
-    this.app.getRootNode().addLight(ambient); 
-    createLevel();
+    this.app.getRootNode().addLight(ambient);
+    
+    
   }
 
   @Override
@@ -99,25 +121,36 @@ public class LevelAppState extends AbstractAppState{
   }
   
   private void spawnEnemies() {
-    if (System.currentTimeMillis() - enemySpawnCooldown >= ENEMY_LIMIT_COOL_DOWN) {
-      enemySpawnCooldown = System.currentTimeMillis();
-      if (((Node)app.getRootNode().getChild(EntidadeAppState.NODEENEMIES)).getQuantity() < levelQuantidadeMaxEnemies) {
-        int random = new Random().nextInt((int) enemySpawnChance);
-        if (level == 0 || level > 3) {
-          if (random <= 1) {
-            app.getStateManager().getState(EntidadeAppState.class).app.getStateManager().getState(EntidadeAppState.class).
+    
+    
+    if (System.currentTimeMillis() - lastEnemySpawnTime >= ENEMY_LIMIT_COOL_DOWN) {
+      lastEnemySpawnTime = System.currentTimeMillis();
+      
+      if (((Node)app.getRootNode().getChild(EntidadeAppState.NODEENEMIES)).getQuantity() < NUMERO_MAXIMO_DE_INIMIGOS) {
+        int random = new Random().nextInt((int) spawnChanceEnemy);
+        
+        if (nodeLevel.getChild(0).getUserData("GreenEnemy")!=null) {
+          if((Integer)nodeLevel.getChild(0).getUserData("GreenEnemy")<=1){
+            app.getStateManager().getState(EntidadeAppState.class).
+                    app.getStateManager().getState(EntidadeAppState.class).
                     createEnemy(DataAppState.ENEMYNAMES[0],4,getSpawnpointForEnemy());
+          }
+          if (random <= 1) {
+            
             //app.getStateManager().getState(EntidadeAppState.class).app.getStateManager().getState(EntidadeAppState.class).createEnemy(4, getSpawnpointForEnemy(), 1, 1000);
           } else if (random <= 3) {
-            app.getStateManager().getState(EntidadeAppState.class).app.getStateManager().getState(EntidadeAppState.class).
+            app.getStateManager().getState(EntidadeAppState.class).
+                    app.getStateManager().getState(EntidadeAppState.class).
                     createEnemy(DataAppState.ENEMYNAMES[0],3,getSpawnpointForEnemy());
             //app.getStateManager().getState(EntidadeAppState.class).createEnemy(3, getSpawnpointForEnemy(), 1, 1000);
           } else if (random <= 6) {
-            app.getStateManager().getState(EntidadeAppState.class).app.getStateManager().getState(EntidadeAppState.class).
+            app.getStateManager().getState(EntidadeAppState.class).
+                    app.getStateManager().getState(EntidadeAppState.class).
                     createEnemy(DataAppState.ENEMYNAMES[0],2,getSpawnpointForEnemy());
             //app.getStateManager().getState(EntidadeAppState.class).createEnemy(2, getSpawnpointForEnemy(), 1, 1000);
           } else if (random <= 12) {
-            app.getStateManager().getState(EntidadeAppState.class).app.getStateManager().getState(EntidadeAppState.class).
+            app.getStateManager().getState(EntidadeAppState.class).
+                    app.getStateManager().getState(EntidadeAppState.class).
                     createEnemy(DataAppState.ENEMYNAMES[0],1,getSpawnpointForEnemy());
             //app.getStateManager().getState(EntidadeAppState.class).createEnemy(1, getSpawnpointForEnemy(), 1, 1000);
           }
@@ -182,13 +215,15 @@ public class LevelAppState extends AbstractAppState{
         }
       }
       //Increase Spawn Time
-      if (enemySpawnChance <= 301) {
-        if (enemySpawnChance <= ENEMY_LIMIT_COOL_DOWN) {
-          enemySpawnChance = 300;
+      if (spawnChanceEnemy <= 51) {
+        if (spawnChanceEnemy <= ENEMY_LIMIT_COOL_DOWN) {
+          spawnChanceEnemy = 51;
           level++;
-          ENEMY_LIMIT_COOL_DOWN = ENEMY_LIMIT_COOL_DOWN - 10;
+          nodeLevel = app.getStateManager().getState(DataAppState.class).getLevel(level);
+          createLevel();
+          
         }
-        enemySpawnChance -= 0.5;
+        spawnChanceEnemy -= 0.05;
       }
     }
   }
